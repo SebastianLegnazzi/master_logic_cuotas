@@ -25,16 +25,16 @@ const TablaMes = ({ data }) => {
             width: '150px',
         },
         {
-            name: 'Precio bruto invertido',
+            name: 'Dinero bruto por mes',
             selector: row => '$' + row.dineroInv,
             sortable: true,
-            width: '250px',
+            width: '260px',
         },
         {
             name: 'Ganado en el Plazo fijo',
             selector: row => '$' + row.dineroGanado,
             sortable: true,
-            width: '340px',
+            width: '330px',
             hide: 'md',
         },
         {

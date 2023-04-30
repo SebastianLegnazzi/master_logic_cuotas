@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import TablaMes from './TablaMes';
@@ -15,21 +15,19 @@ const HacksCuotas = () => {
 
     //config de la libreria "AutoNumeric.js"
     const options = {
-        allowDecimalPadding: AutoNumeric.options.allowDecimalPadding.never,
         currencySymbol: AutoNumeric.options.currencySymbol.dollar,
         decimalCharacter: AutoNumeric.options.decimalCharacter.arabicDecimalSeparator,
         decimalCharacterAlternative: AutoNumeric.options.decimalCharacterAlternative.dot,
-        decimalPlacesShownOnFocus: AutoNumeric.options.decimalPlacesShownOnFocus.none,
+        decimalPlaces: 0,
         digitGroupSeparator: AutoNumeric.options.digitGroupSeparator.dot
     }
 
     //config de la libreria "AutoNumeric.js"
     const optionsPorcentaje = {
-        allowDecimalPadding: AutoNumeric.options.allowDecimalPadding.never,
         currencySymbol: '%',
         decimalCharacter: AutoNumeric.options.decimalCharacter.arabicDecimalSeparator,
         decimalCharacterAlternative: AutoNumeric.options.decimalCharacterAlternative.dot,
-        decimalPlacesShownOnFocus: AutoNumeric.options.decimalPlacesShownOnFocus.none,
+        decimalPlaces: 0,
         digitGroupSeparator: AutoNumeric.options.digitGroupSeparator.dot
     }
 
@@ -104,7 +102,10 @@ const HacksCuotas = () => {
                 <Form noValidate validated={validated} onSubmit={handleSubmit} className='row justify-content-center'>
                     {/* Input cantCuota */}
                     <div className='col-12 mb-3 row justify-content-center'>
-                        <Form.Group controlId="cantCuota" className='col-md-2 col-sm-4 mt-2'>
+                        <div className='text-center text-white'>
+                            <h5 className='ps-2 pe-2 p-1 rounded bg-dark d-inline-block'>Producto a Adquirir</h5>
+                        </div>
+                        <Form.Group controlId="cantCuota" className='col-7 col-sm-7 col-md-4 col-lg-3 mt-2'>
                             <div className="form-floating">
                                 <Form.Control
                                     required
@@ -115,17 +116,17 @@ const HacksCuotas = () => {
                                 />
                                 <Form.Control.Feedback type="invalid">Ingrese un numero de 1 a 12!</Form.Control.Feedback>
                                 <label htmlFor="floatingInput">
-                                    <i class="bi bi-piggy-bank-fill"> </i>
+                                    <i className="bi bi-piggy-bank-fill"> </i>
                                     Cantidad de cuotas
 
                                 </label>
                             </div>
                         </Form.Group>
-                        <div className='col-1 d-flex align-items-center justify-content-center'>
+                        <div className='col-sm-12 col-md-1 d-flex align-items-center justify-content-center'>
                             <i className="bi bi-x-lg text-white fs-3"></i>
                         </div>
                         {/* Input precioCuota */}
-                        <Form.Group controlId="precioCuota" className='col-md-3 col-sm-3 mt-2'>
+                        <Form.Group controlId="precioCuota" className='col-7 col-sm-7 col-md-4 col-lg-3 mt-2'>
                             <div className="form-floating">
                                 <Form.Control
                                     required
@@ -133,16 +134,16 @@ const HacksCuotas = () => {
                                     placeholder=" "
                                 />
                                 <label htmlFor="floatingInput">
-                                    <i class="bi bi-coin"> </i>
+                                    <i className="bi bi-coin"> </i>
                                     Precio de la cuota
                                 </label>
                             </div>
                         </Form.Group>
-                        <div className='col-1 d-flex align-items-center justify-content-center'>
+                        <div className='col-sm-12 col-md-1 d-flex align-items-center justify-content-center'>
                             <i className="bi bi-chevron-right text-white fs-3"></i>
                         </div>
                         {/* Input precioTot */}
-                        <Form.Group controlId="precioTot" className='col-md-3 col-sm-3 mt-2'>
+                        <Form.Group controlId="precioTot" className='col-7 col-sm-7 col-md-5 col-lg-4 mt-2'>
                             <div className="form-floating">
                                 <Form.Control
                                     required
@@ -151,14 +152,17 @@ const HacksCuotas = () => {
                                     disabled
                                 />
                                 <label htmlFor="floatingInput">
-                                    <i class="bi bi-cash-coin"> </i>
+                                    <i className="bi bi-cash-coin"> </i>
                                     Precio total del producto
                                 </label>
                             </div>
                         </Form.Group>
                     </div>
+                    <div className='text-center text-white'>
+                        <h5 className='ps-2 pe-2 p-1 rounded bg-dark d-inline-block'>Dinero y Plazo</h5>
+                    </div>
                     {/* Input dineroInv */}
-                    <Form.Group controlId="dineroInv" className='col-md-3 col-sm-5 mt-2'>
+                    <Form.Group controlId="dineroInv" className='col-5 col-md-3 col-sm-5 mt-2'>
                         <div className="form-floating">
                             <Form.Control
                                 required
@@ -166,14 +170,13 @@ const HacksCuotas = () => {
                                 placeholder=" "
                             />
                             <label htmlFor="floatingInput">
-                                <i class="bi bi-coin"> </i>
+                                <i className="bi bi-coin"> </i>
                                 Dinero a invertir
-                                (Precio de lista)
                             </label>
                         </div>
                     </Form.Group>
                     {/* Input porcentajePrazo */}
-                    <Form.Group controlId="porcentajePrazo" className='col-md-2 col-sm-5 mt-2'>
+                    <Form.Group controlId="porcentajePrazo" className=' col-4 col-md-2 col-sm-5 mt-2'>
                         <div className="form-floating">
                             <Form.Control
                                 required
@@ -181,7 +184,7 @@ const HacksCuotas = () => {
                                 placeholder=" "
                             />
                             <label htmlFor="floatingInput">
-                                % Porcentaje del plazo fijo
+                                % TNA
                             </label>
                         </div>
                     </Form.Group>
@@ -198,9 +201,9 @@ const HacksCuotas = () => {
                     <div className='row justify-content-center'>
                         <div className='text-white text-center ps-2 pt-2 mt-5 border border-1 rounded border-warning col-5 col-md-3' id='txt-ganaste'>
                             {typeof arrayDatosXMes[arrayDatosXMes.length - 1].dineroBruto === 'number' ? (
-                                <h5><i class="bi bi-cash-coin fs-6"> </i>Ganaste: <span className='text-success'>${arrayDatosXMes[arrayDatosXMes.length - 1].dineroBruto}</span></h5>
+                                <h5><i className="bi bi-cash-coin fs-6"> </i>Ganaste: <span className='text-success'>${arrayDatosXMes[arrayDatosXMes.length - 1].dineroBruto}</span></h5>
                             ) : (
-                                <h5><i class="bi bi-x-octagon fs-6"> </i>Perdiste: <span className='text-danger'>El dinero no fue suficiente para abonar las cuotas!</span></h5>
+                                <h5><i className="bi bi-x-octagon fs-6"> </i>Perdiste: <span className='text-danger'>El dinero no fue suficiente para abonar las cuotas!</span></h5>
                             )
                             }
                         </div>

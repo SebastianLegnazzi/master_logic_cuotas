@@ -1,4 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+p, ul, h5 {
+    font-family: Cabin;
+}
+
 .txt-explicativo {
     background-color: rgb(36, 36, 36);
     box-shadow: 0px 4px 10px black;
+}
+
+#txt-explicativo-imagen {
+    font-size: 16px;
+}
+
+.img-explicativa{
+    object-fit: contain;
 }
