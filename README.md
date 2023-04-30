@@ -1,7 +1,6 @@
 # Proyecto Master Logic Cuotas
 ## Datos del Proyecto
-- **DESCRIPCION:** Este proyecto consta de evaluar la diferencia de pagar el precio "Especial" de algun producto por transferencia/deposito y pagar el precio de "Lista" en cuotas, depositando el precio "Especial" en un plazo fijo. De esta forma, abonar el precio de "Lista" con el mismo precio "Especial" ademas de botener ganancias al finalizar el pago del producto.
-- **REFERENCIAS:** [Imagen](https://imgur.com/eOGhd7H), [Sitio Web](https://compragamer.com/) (Sirve para mas sitios, solo se utilizo este como referencia) 
+- **DESCRIPCION:** Este proyecto consta de calcular si es posible pagar el precio de la cuota todos los meses depositando el "dinero a invertir" en un plazo fijo sumandole dicho interes todos los meses y restandole la cuota del producto.
 - **Tecnologias utilizadas:**
     - [React](https://es.reactjs.org/)
     - [Bootstrap](https://getbootstrap.com/)
