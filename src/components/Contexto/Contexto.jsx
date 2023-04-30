@@ -29,7 +29,6 @@ const Contexto = () => {
                 <hr className='text-white w-25 m-auto mb-3' />
                 <img src={imgExplicacion} className='img-fluid' alt="imagen explicativa de datos a insertar" />
             </div>
-            <hr className='text-white w-50 m-auto mt-3' />
 
         </div>
 

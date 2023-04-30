@@ -8,21 +8,22 @@ import Footer from './components/Estructura/Footer';
 import Contexto from './components/Contexto/Contexto';
 
 function App() {
+  window.document.title = 'Master Logic Cuotas';
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/master_logic_cuotas">
         {/*======= Incluimos Header =======*/}
         <Header />
-        <Contexto />
         {/*======= creamos las rutas =======*/}
         <Routes>
           <Route exact path='/' element={<HacksCuotas />} />
+          <Route exact path='/Contexto' element={<Contexto />}/>
           <Route path='*' element={<Page404 />} />
         </Routes>
         {/*======= Incluimos Footer =======*/}
-      </BrowserRouter>
+      </BrowserRouter >
       <Footer />
-    </div>
+    </div >
   );
 }
 
