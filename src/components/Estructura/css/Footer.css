@@ -1,0 +1,10 @@
+footer {
+    border-top: 2px solid rgb(255, 0, 149);
+    box-shadow: 5px 2px 8px rgb(255, 0, 149);
+    background-color: #212529;
+    justify-self: end;
+}
+
+footer p {
+    display: inline-block;
+}

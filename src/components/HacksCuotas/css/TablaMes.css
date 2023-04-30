@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+.sc-kPTPQs {
+    display: none !important;
+}
+
+.rdt_ExpanderRow {
+    display: none !important;
+}
+
+@media (max-width: 1280px) {
+    .sc-kPTPQs {
+        display: flex !important;
+    }
+
+    .rdt_ExpanderRow {
+        display: flex !important;
+    }
+}
+
+p {
+    font-family: 'Rubik';
+}
+
+#tabla-txt-expandible{
+    background-color: rgb(34, 34, 34);
+    border-radius: 10px;
+}
