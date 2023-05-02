@@ -199,6 +199,7 @@ const HacksCuotas = () => {
                                     ref={refIPreCuota}
                                     onChange={ejecutador}
                                 />
+                                <Form.Control.Feedback type="invalid">Ingrese un numero!</Form.Control.Feedback>
                                 <label htmlFor="floatingInput">
                                     <i className="bi bi-coin"> </i>
                                     Precio de la cuota
@@ -240,6 +241,7 @@ const HacksCuotas = () => {
                                 inputMode="numeric"
                                 ref={refIDineroInv}
                             />
+                            <Form.Control.Feedback type="invalid">Ingrese un numero!</Form.Control.Feedback>
                             <label htmlFor="floatingInput">
                                 <i className="bi bi-coin"> </i>
                                 Dinero a invertir
@@ -266,6 +268,7 @@ const HacksCuotas = () => {
                                 onBlur={ejecutador}
                                 ref={refITNA}
                             />
+                            <Form.Control.Feedback type="invalid">Ingrese un porcentaje!</Form.Control.Feedback>
                             <label htmlFor="floatingInput">
                                 % TNA
                             </label>
