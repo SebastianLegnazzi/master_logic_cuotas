@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import TablaMes from './TablaMes';
 import './css/HacksCuotas.css';
 import AutoNumeric from 'autonumeric';
-import Swal from 'sweetalert2';
 
 
 const HacksCuotas = () => {
@@ -13,6 +12,13 @@ const HacksCuotas = () => {
     const [validated, setValidated] = useState(false);  //State que valida el estado del formulario
     const [arrayDatosXMes, setArrayDatosXMes] = useState([]);   //State que obtiene por mes el dinero invertido y el ganado con el plazo fijo
     const [precioMinInv, setPrecioMinInv] = useState(0);   //State que 
+
+    //Referencia al "input Cuota" y "Precio Total Producto"
+    const refICantCuota = useRef(null);
+    const refIPreTotProd = useRef(null);
+    const refIPreCuota = useRef(null);
+    const refIDineroInv = useRef(null);
+    const refITNA = useRef(null);
 
     //config de la libreria "AutoNumeric.js"
     const options = {
@@ -32,13 +38,6 @@ const HacksCuotas = () => {
         digitGroupSeparator: AutoNumeric.options.digitGroupSeparator.dot
     }
 
-    //Referencia al "input Cuota" y "Precio Total Producto"
-    const refICantCuota = useRef(null);
-    const refIPreTotProd = useRef(null);
-    const refIPreCuota = useRef(null);
-    const refIDineroInv = useRef(null);
-    const refITNA = useRef(null);
-
     //Incorporamos la libreria para que aplique el estilo a los inputs
     useEffect(() => {
         //Pregunto si tiene datos en el localstorage para cargar
@@ -47,9 +46,9 @@ const HacksCuotas = () => {
             setArrayDatosXMes(JSON.parse(localStorage.getItem('datos')));
             let inputs = JSON.parse(localStorage.getItem('inputs'));
             refICantCuota.current.value = inputs.CantCuotas;
-            refIPreTotProd.current.value =  inputs.DineroInv * inputs.CantCuotas;
-            refIPreCuota.current.value =    inputs.PrecioCuota;
-            refIDineroInv.current.value =   inputs.DineroInv;
+            refIPreTotProd.current.value = inputs.DineroInv * inputs.CantCuotas;
+            refIPreCuota.current.value = inputs.PrecioCuota;
+            refIDineroInv.current.value = inputs.DineroInv;
             refITNA.current.value = inputs.PorcentajePlazo;
         }
         const arrayOfId = ['#precioCuota', '#dineroInv', '#precioTot'];
@@ -112,7 +111,7 @@ const HacksCuotas = () => {
     };
 
     //Limpia el Local Storage
-    const limpiar = () =>{
+    const limpiar = () => {
         localStorage.clear()
         window.location.reload();
     }
