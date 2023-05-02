@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 // importo componentes
 import HacksCuotas from './components/HacksCuotas/HacksCuotas';
@@ -11,17 +11,17 @@ function App() {
   window.document.title = 'Master Logic Cuotas';
   return (
     <div className="App">
-      <BrowserRouter basename="/master_logic_cuotas">
+      <HashRouter>
         {/*======= Incluimos Header =======*/}
         <Header />
         {/*======= creamos las rutas =======*/}
         <Routes>
-          <Route exact path='/' element={<HacksCuotas />} />
-          <Route exact path='/Contexto' element={<Contexto />}/>
+          <Route path='/' element={<HacksCuotas />} />
+          <Route path='/Contexto' element={<Contexto />}/>
           <Route path='*' element={<Page404 />} />
         </Routes>
         {/*======= Incluimos Footer =======*/}
-      </BrowserRouter >
+      </HashRouter >
       <Footer />
     </div >
   );

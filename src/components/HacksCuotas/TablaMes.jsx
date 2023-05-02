@@ -1,15 +1,18 @@
 import DataTable, { createTheme } from 'react-data-table-component';
 import './css/TablaMes.css'
+import { useEffect } from 'react';
 
 const TablaMes = ({ data }) => {
+
 
     /* Contenido expandible */
     const ExpandedComponent = ({ data }) => {
         return (
             <div className='col-12'>
                 <div className='ms-2 ps-2 p-1' id='tabla-txt-expandible'>
-                    <p><strong>Ganado en el Plazo fijo:</strong> ${data.dineroGanado}</p>
-                    <p><strong>Precio descontando la cuota:</strong> ${data.dineroBruto}</p>
+                    <p><strong>Dinero bruto x mes:</strong> ${data.dineroInv.toFixed(2)}</p>
+                    <p><strong>Interes Plazo Fijo:</strong> ${data.dineroGanado.toFixed(2)}</p>
+                    <p><strong>Precio descontando la cuota:</strong> ${data.dineroBruto.toFixed(2)}</p>
                 </div>
                 <hr className='m-2' />
             </div>
@@ -19,27 +22,28 @@ const TablaMes = ({ data }) => {
     /* Columnas */
     const columns = [
         {
-            name: 'Nro Cuota',
+            name: 'Cuota',
             selector: row => row.mes,
             sortable: true,
-            width: '150px',
+            width: '120px',
         },
         {
-            name: 'Dinero bruto por mes',
-            selector: row => '$' + row.dineroInv,
+            name: 'Dinero bruto x mes',
+            selector: row => '$' + row.dineroInv.toFixed(2),
             sortable: true,
-            width: '260px',
+            width: '240px',
+            hide:'sm'
         },
         {
-            name: 'Ganado en el Plazo fijo',
-            selector: row => '$' + row.dineroGanado,
+            name: 'Interes Plazo Fijo',
+            selector: row => '$' + row.dineroGanado.toFixed(2),
             sortable: true,
             width: '330px',
             hide: 'md',
         },
         {
             name: 'Precio descontando la cuota',
-            selector: row => '$' + row.dineroBruto,
+            selector: row => '$' + row.dineroBruto.toFixed(2),
             sortable: true,
             width: '340px',
             hide: 'lg',
